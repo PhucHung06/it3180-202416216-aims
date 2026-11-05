@@ -28,6 +28,9 @@ class Cart:
 
     def print_cart(self):
         print("***********************CART***********************")
+        if not self.items:
+            print("The cart is empty")
+            return
         print("Ordered Items:")
         for idx, item in enumerate(self.items, 1):
             print(f"{idx}. DVD - {item.title} - {item.category} - {item.director} - {item.length}: {item.cost} $")
