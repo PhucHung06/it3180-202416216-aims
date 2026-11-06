@@ -14,6 +14,19 @@ class TestCartLimit(unittest.TestCase):
         dvd_21 = DigitalVideoDisc("Title 21", "Category", "Director", 90, 10.0)
         self.assertFalse(cart.add_dvd(dvd_21))
 
+    def test_discount_calculation(self):
+        cart = Cart()
+        dvd = DigitalVideoDisc("Sample DVD", "Category", "Director", 90, 100.0)
+        cart.add_dvd(dvd)
+        # Giảm giá 20% trên 100$ -> Phải còn 80$
+        self.assertAlmostEqual(cart.total_cost_with_discount(20), 80.0)
+        # Percent không hợp lệ -> Phải raise ValueError
+        with self.assertRaises(ValueError):
+            cart.total_cost_with_discount(150)
+        with self.assertRaises(ValueError):
+            cart.total_cost_with_discount(-10)
+
+
 if __name__ == "__main__":
     unittest.main()
 
