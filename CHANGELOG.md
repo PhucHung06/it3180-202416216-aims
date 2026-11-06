@@ -15,3 +15,8 @@ Tất cả các thay đổi đáng chú ý của dự án sẽ được ghi lạ
 
 ### Fixed
 - Sửa lỗi giỏ hàng nhận đĩa thứ 21 vượt quá giới hạn tối đa (#6).
+
+## [1.1.0] - 2026-11-06
+### Added
+- Thêm phương thức sắp xếp giỏ hàng `Cart.sort_by_title()` và `Cart.sort_by_cost()`.
+- Thêm chức năng tìm kiếm đĩa theo thể loại `search_by_category()`.
